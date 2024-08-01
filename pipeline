@@ -1,0 +1,40 @@
+pipeline {
+agent any
+stages {
+    stage('Checkout') {
+       steps {
+      // Checkout code from Git repository
+      git url: 'https://github.com/sudarshan23203034/cia-lab-1.git', branch: 'main'
+        	}
+    	}
+   stage('Build') {
+       steps {
+        // Example build step, replace with your build commands
+          echo 'Building... lab1'
+          // sh 'make' // Uncomment and replace with your build command
+        	}
+    	} 
+    stage('Test') {
+       steps {
+          // Example test step, replace with your test commands
+           echo 'Testing... lab1'
+           // sh 'make test' // Uncomment and replace with your test command
+        	}
+    	}
+stage('Deploy') {
+      steps {
+  // Example deploy step, replace with your deploy commands
+  echo 'Deploying... lab1'
+  // sh 'make deploy' // Uncomment and replace with your deploy command
+        	}
+    	}
+	}
+
+	post {
+    	success {
+        	echo ' Pipeline completed successfully!'
+    	}
+    	failure {
+        	echo 'Pipeline failed!'
+    	}
+	}}
